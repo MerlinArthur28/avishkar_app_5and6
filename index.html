@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type = "text/css">
+    body{
+        background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(images.jpeg) ;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+    h1{
+        text-align: center;
+    }
+    div{
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        padding: 120px;
+        box-sizing: border-box;
+
+    }
+
+
+</style>
+<script type = "text/javascript">
+    function check()
+    {
+        var usr = document.getElementById("username").value;
+        var eml = document.getElementById("email").value;
+        var pwd = document.getElementById("password").value;
+        var cpd = document.getElementById("confirm password").value;
+        if (usr.length <8){
+            alert("Username must contain atleast 8 characters.");
+        }
+        else
+        {  
+            p = eml.includes("@");
+            var ind = eml.indexOf("@");
+            var string = eml.slice(ind+2,eml.length-1);
+            q = string.includes(".");
+            if(!p | !q)
+            {
+                alert("invalid email id")
+            }
+            else
+            {
+                if(pwd.length<6)
+                {
+                    alert("Password must contain atleast 6 characters");
+                }
+                else
+                {
+                    if(cpd!= pwd)
+                    {
+                        alert("Confirm Password and Password must match")
+                    }
+                    else
+                    {
+                        document.location.href="sucess.html";
+                    }
+                }
+            }
+        }
+    }
+   
+</script>
+
+<body>
+    <centre> <h1 style = "color :red" >Registration Form</h1> </centre>
+    <hr>
+    <div style = "color:magenta">
+        Username
+        <br>
+        <input id = "username" >
+       <br>
+       <br>
+       Email
+       <br>
+       <input id = "email" >
+       <br>
+       <br>
+       Password
+       <br>
+       <input type = "password" id = "password" >
+       <br>
+       <br>
+       Confirm Password 
+       <br>
+       <input type = "password" id = "confirm password" >
+       <br>
+       <br>
+       <button onclick = "check()" id = "button">Submit</button>
+    </div>
+</body>
+</html>
